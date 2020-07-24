@@ -28,25 +28,25 @@ let resultList = {
         
         date: "April 15th 2020",
         number: .4,
-        measurement: "mIU/L"
+        units: "mIU/L"
         },
         
         {
             date: "May 15th 2020",
             number: .9,
-            measurement: "mIU/L"
+            units: "mIU/L"
         },
 
         {
             date: "June 17th 2020",
             number: 1.4,
-            measurement: "mIU/L"
+            units: "mIU/L"
         },
 
         {
             date: "July 15th 2020",
             number: 1.8,
-            measurement: "mIU/L"
+            units: "mIU/L"
         },
     ]
 }
@@ -57,14 +57,14 @@ app.get('/bloodWork', (req,res) => {
 
 app.post('/result/add', (req, res) => {
     let number = Number(req.body.number)
-    let measurement = Number(req.body.measurement)
+    let units = Number(req.body.units)
     let date = req.body.date;
   
   
     let newResult  = {
-      date: date,
-      number: number,
-      measurement: measurement
+        number: number,
+        units: units,
+        date: date
     };
   
   
@@ -78,8 +78,8 @@ app.post('/result/add', (req, res) => {
   
     res.send({
       success : true,
-      measurement: measurement,
       number: number,
+      units: units,
       date: date,
       data: resultList
     })
